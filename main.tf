@@ -207,7 +207,7 @@ resource "terraform_data" "main_delete" {
     aws_instance.main.id 
   ]
 
-  depends_on = [aws_autoscaling_group.catalogue]
+  depends_on = [aws_autoscaling_group.main]
   
   provisioner "local-exec" { 
     command = "aws ec2 terminate-instances --instance-ids ${aws_instance.main.id}"
