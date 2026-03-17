@@ -10,7 +10,7 @@ locals {
     ssh_password = data.aws_ssm_parameter.ssh_password.value
     vpc_id = data.aws_ssm_parameter.vpc_id.value 
     health_check_path = var.component == "frontend" ? "/" : "/health"
-    port_number = var.component == "frontend" ? "80" : "8080"
+    port_number = var.component == "frontend" ? 80 : 8080
     alb_listener_arn = var.component == "frontend" ? local.backend_alb_listener_arn : local.frontend_alb_listener_arn
     backend_alb_listener_arn = data.aws_ssm_parameter.backend_alb_listener_arn.value
     frontend_alb_listener_arn = data.aws_ssm_parameter.frontend_alb_listener_arn.value
